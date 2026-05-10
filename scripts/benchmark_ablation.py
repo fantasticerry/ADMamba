@@ -162,8 +162,8 @@ def main():
     results.append({**r, 'name': '+ 1st-order FDG (RGB)'})
     del mod_5
 
-    # ===== 5. + 1st-order FDG (RGB+DSM) (current admamba/models/ad_mamba.py, ElevationGuidedGate) =====
-    print("\n[5/6] Loading ad_mamba.py  (+1st-order FDG RGB+DSM)")
+    # ===== 5. + Elevation-Guided Gate (RGB+DSM) (current admamba/models/ad_mamba.py, ElevationGuidedGate) =====
+    print("\n[5/6] Loading ad_mamba.py  (+Elevation-Guided Gate RGB+DSM)")
     mod_cur = load_module_from_file(main_model_path, 'pm_cur_elev')
     model = mod_cur.ADMamba(
         num_classes=NUM_CLASSES, last_feat_size=LAST_FEAT_SIZE, img_size=IMG_SIZE, pretrained=True,
@@ -172,11 +172,11 @@ def main():
         use_fractional_gate=False,
         use_geo_msaa=False,
     )
-    results.append(benchmark_model(model, '+ 1st-order FDG (RGB+DSM)'))
+    results.append(benchmark_model(model, '+ Elevation-Guided Gate (RGB+DSM)'))
     del mod_cur
 
-    # ===== 6. + Fractional-order FDG (RGB+DSM) (current admamba/models/ad_mamba.py, FractionalDifferenceGate) =====
-    print("\n[6/6] Loading ad_mamba.py  (+Fractional FDG RGB+DSM)")
+    # ===== 6. + Fractional Calculus Gate / FCG (RGB+DSM) (current admamba/models/ad_mamba.py, FractionalCalculusGate) =====
+    print("\n[6/6] Loading ad_mamba.py  (+FCG RGB+DSM)")
     mod_cur2 = load_module_from_file(main_model_path, 'pm_cur_frac')
     model = mod_cur2.ADMamba(
         num_classes=NUM_CLASSES, last_feat_size=LAST_FEAT_SIZE, img_size=IMG_SIZE, pretrained=True,
@@ -187,7 +187,7 @@ def main():
         fractional_memory_length=16,
         use_geo_msaa=False,
     )
-    results.append(benchmark_model(model, '+ Fractional-order FDG (RGB+DSM)'))
+    results.append(benchmark_model(model, '+ Fractional Calculus Gate (RGB+DSM)'))
     del mod_cur2
 
     # ===== Print summary =====

@@ -12,10 +12,10 @@ with three ideas tailored to overhead imagery:
 - **Sparse top-k MoE direction routing.** A learnable gate selects the most
   informative scan directions per sample, with a load-balancing auxiliary
   loss inspired by MoCE-IR.
-- **Fractional-order difference gate (FDG).** A Grünwald-Letnikov fractional
+- **Fractional Calculus Gate (FCG).** A Grünwald-Letnikov fractional
   derivative gate (with optional DSM/nDSM fusion) replaces the original
-  first-order difference gate to capture long-range dependencies along each
-  scan direction.
+  first-order finite difference gate (FDG) to capture long-range dependencies
+  along each scan direction.
 
 Validated datasets: **ISPRS Vaihingen** and **ISPRS Potsdam**.
 
@@ -334,7 +334,7 @@ export HF_ENDPOINT=https://hf-mirror.com
 ```
 
 ```bash
-# Vaihingen with the default fractional-order FDG (alpha = 0.8) + RGB+DSM
+# Vaihingen with the default fractional FCG (alpha = 0.8) + RGB+DSM
 python scripts/train.py -c configs/vaihingen/ad_mamba.py
 
 # Potsdam
@@ -392,7 +392,7 @@ python scripts/test_vaihingen.py \
 
 `scripts/benchmark_ablation.py` measures FLOPs / FPS / parameters across the
 six AD-Mamba design points (1-row, 4-row, 8-row, 8-select-4, 1st-order FDG,
-fractional FDG). It loads the four standalone module snapshots stored in
+fractional FCG). It loads the four standalone module snapshots stored in
 `ablations/` together with the canonical `admamba/models/ad_mamba.py`:
 
 ```bash
@@ -422,11 +422,11 @@ The analysis scripts expect either `ADMAMBA_VAIHINGEN_TEST` /
 
 ## Known issues
 
-- When `enable_moe=True`, the `FractionalDifferenceGate` and
+- When `enable_moe=True`, the `FractionalCalculusGate` and
   `ElevationGuidedGate` modules are silently bypassed inside
   `SparseMoELayer.apply_gate` — the gating modules are attributes of
   `MambaLayer` and are not wired through to the sparse path. The
-  configurations in `configs/` therefore route their fractional-FDG
+  configurations in `configs/` therefore route their fractional-FCG
   experiments through the dense path that `MambaLayer.forward` takes when
   the relevant flag is set; the MoE-only variants share the same scan but
   do not receive fractional gating. Fixing the wiring is on the roadmap.

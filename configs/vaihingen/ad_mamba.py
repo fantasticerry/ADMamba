@@ -39,7 +39,7 @@ pretrained_ckpt_path = None
 gpus = "auto"
 resume_ckpt_path = None
 
-# Network: high-order fractional FDG with RGB + DSM input
+# Network: fractional calculus gate (FCG, alpha=0.8) with RGB + DSM input
 net = ADMamba(
     num_classes=num_classes,
     use_elevation_gate=False,
