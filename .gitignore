@@ -29,6 +29,10 @@ pretrain_weights/
 .idea/
 .vscode/
 .DS_Store
+.cursor/
+
+# Ablation experiments (kept local only)
+ablations/
 
 # Virtual envs
 .venv/
