@@ -6,7 +6,7 @@ AD-Mamba（Anti-Dilution Mamba）面向遥感语义分割，在 [PyramidMamba](h
 
 - **八方向对角扫描。** 自定义 `CrossScan` / `CrossMerge` 自动微分类对，为 Mamba 状态空间模型提供水平、垂直、两条对角线及其反向序列。
 - **稀疏 top-k MoE 方向路由。** 可学习门控按样本选择信息量最大的扫描方向，并带有受 MoCE-IR 启发的负载均衡辅助损失。
-- **分数阶差分门（FDG）。** 用 Grünwald–Letnikov 分数阶导数门（可选 DSM/nDSM 融合）替代原一阶差分门，沿各扫描方向建模长程依赖。
+- **分数阶差分门控（FCG）。** 用 Grünwald–Letnikov 分数阶导数门（可选 DSM/nDSM 融合）替代原一阶差分门控（FDG），沿各扫描方向建模长程依赖。
 
 
 验证数据集：**ISPRS Vaihingen**、**ISPRS Potsdam**。
@@ -283,7 +283,7 @@ export HF_ENDPOINT=https://hf-mirror.com
 ```
 
 ```bash
-# Vaihingen：默认分数阶 FDG（alpha=0.8）+ RGB+DSM
+# Vaihingen：默认分数阶 FCG（alpha=0.8）+ RGB+DSM
 python scripts/train.py -c configs/vaihingen/ad_mamba.py
 
 # Potsdam
@@ -334,7 +334,7 @@ python scripts/test_vaihingen.py \
 
 ## 扫描 / 门控消融基准
 
-`scripts/benchmark_ablation.py` 在六种设计点（1 行、4 行、8 行、八选四、一阶 FDG、分数阶 FDG）上统计 FLOPs / FPS / 参数量；同时加载 `ablations/` 下四个快照与正式实现 `admamba/models/ad_mamba.py`：
+`scripts/benchmark_ablation.py` 在六种设计点（1 行、4 行、8 行、八选四、一阶 FDG、分数阶 FCG）上统计 FLOPs / FPS / 参数量；同时加载 `ablations/` 下四个快照与正式实现 `admamba/models/ad_mamba.py`：
 
 ```bash
 python scripts/benchmark_ablation.py
@@ -361,7 +361,7 @@ python analysis/plot_final_figures.py
 
 ## 已知问题
 
-- `enable_moe=True` 时，`SparseMoELayer.apply_gate` 会静默绕过 `FractionalDifferenceGate` 与 `ElevationGuidedGate` —— 门控模块挂在 `MambaLayer` 上但未接入稀疏路径。`configs/` 中带分数阶 FDG 的实验走的是 MoE 关闭时的稠密路径；纯 MoE 变体共享扫描方式但不经过分数阶门控。修复接线在路线图内。
+- `enable_moe=True` 时，`SparseMoELayer.apply_gate` 会静默绕过 `FractionalCalculusGate` 与 `ElevationGuidedGate` —— 门控模块挂在 `MambaLayer` 上但未接入稀疏路径。`configs/` 中带分数阶 FCG 的实验走的是 MoE 关闭时的稠密路径；纯 MoE 变体共享扫描方式但不经过分数阶门控。修复接线在路线图内。
 - `HardTopKRouting.backward` 丢弃 `grad_scores` 并返回 `None`，路由 logits 无梯度 —— 符合 STE 常见写法，但门控无法仅靠路由决策本身微调。
 - `MambaLayer.update_training_step(step)` 为门控内噪声衰减预留，`scripts/train.py` 中的 Trainer **尚未调用**。
 

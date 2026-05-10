@@ -404,8 +404,8 @@ class FiniteDifferenceGate(nn.Module):
         
         return gated_x
 #####################################################
-# 分数阶微积分门控模块 (Fractional Calculus Gate)
-class FractionalDifferenceGate(nn.Module):
+# 分数阶微积分门控模块 (Fractional Calculus Gate, FCG)
+class FractionalCalculusGate(nn.Module):
     """
     基于分数阶微积分的门控模块，使用 Grünwald-Letnikov 离散化。
     
@@ -634,7 +634,7 @@ class FractionalDifferenceGate(nn.Module):
 
 
 #####################################################
-# 海拔感知各向异性门控模块 (Geo-Anisotropic FDG)
+# 海拔感知各向异性门控模块 (Elevation-Guided Gate)
 class ElevationGuidedGate(nn.Module):
     """
     针对遥感设计的海拔感知门控 (Elevation Geometry Prior)
@@ -890,7 +890,7 @@ class MambaLayer(nn.Module):
         # 分数阶微积分门控模块（消融开关：use_fractional_gate）
         # 优先级：fractional_gate > elevation_gate > fd_gate
         if self.use_fractional_gate:
-            self.frac_gate = FractionalDifferenceGate(
+            self.frac_gate = FractionalCalculusGate(
                 dim=dim*self.pool_len+in_chs,
                 alpha_init=fractional_alpha,
                 memory_length=fractional_memory_length,

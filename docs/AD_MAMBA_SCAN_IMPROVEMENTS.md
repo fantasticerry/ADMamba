@@ -54,7 +54,7 @@ $$D^\alpha f(t) = \frac{1}{\Gamma(n-\alpha)} \int_0^t \frac{f^{(n)}(\tau)}{(t-\t
 ### 实现方案
 
 ```python
-class FractionalDifferenceGate(nn.Module):
+class FractionalCalculusGate(nn.Module):
     """
     分数阶差分门控：利用 Grünwald-Letnikov 离散化
     捕获长程空间依赖，适合遥感中连续地物的边界检测
