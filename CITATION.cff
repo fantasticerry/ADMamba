@@ -1,0 +1,25 @@
+cff-version: 1.2.0
+message: "If you use AD-Mamba in your research, please cite this repository as well as the upstream PyramidMamba and Mamba papers."
+title: "AD-Mamba: Anisotropic-Direction Mamba for Remote Sensing Semantic Segmentation"
+type: software
+version: 0.1.0
+license: GPL-3.0-only
+authors:
+  - name: "AD-Mamba contributors"
+url: "https://github.com/your-org/ADMamba"
+keywords:
+  - mamba
+  - state-space-model
+  - semantic-segmentation
+  - remote-sensing
+  - vaihingen
+  - potsdam
+references:
+  - type: article
+    title: "PyramidMamba: Rethinking Pyramid Feature Fusion with Selective Space State Model for Semantic Segmentation of Remote Sensing Imagery"
+    authors:
+      - family-names: "Wang"
+        given-names: "Libo"
+    year: 2024
+    journal: "arXiv preprint"
+    notes: "arXiv:2406.10828"

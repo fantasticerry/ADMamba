@@ -1,0 +1,79 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "admamba"
+version = "0.1.0"
+description = "AD-Mamba: Anisotropic-Direction Mamba for remote sensing semantic segmentation."
+readme = "README.md"
+license = { file = "LICENSE" }
+requires-python = ">=3.10"
+authors = [{ name = "AD-Mamba contributors" }]
+keywords = [
+    "mamba",
+    "state-space-model",
+    "semantic-segmentation",
+    "remote-sensing",
+    "vaihingen",
+    "potsdam",
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
+    "Operating System :: POSIX :: Linux",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Topic :: Scientific/Engineering :: Image Recognition",
+]
+
+dependencies = [
+    "timm==0.9.16",
+    "pytorch-lightning==2.3.0",
+    "albumentations",
+    "ttach",
+    "numpy",
+    "tqdm",
+    "opencv-python",
+    "scipy",
+    "matplotlib",
+    "einops",
+    "addict",
+    "ftfy",
+    "regex",
+    "scikit-image",
+    "catalyst",
+    "thop",
+]
+
+[project.optional-dependencies]
+# CUDA-only Mamba kernels. Install AFTER PyTorch.
+cuda = [
+    "causal-conv1d>=1.4.0",
+    "mamba-ssm>=1.2.0",
+]
+dev = [
+    "pytest",
+    "ruff",
+]
+
+[project.urls]
+Homepage = "https://github.com/your-org/ADMamba"
+Issues = "https://github.com/your-org/ADMamba/issues"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = [
+    "admamba*",
+    "tools*",
+]
+exclude = [
+    "ablations*",
+    "analysis*",
+    "configs*",
+    "scripts*",
+    "docs*",
+    "assets*",
+]

@@ -1,0 +1,22 @@
+timm==0.9.16
+pytorch-lightning==2.3.0
+albumentations
+ttach
+numpy
+tqdm
+opencv-python
+scipy
+matplotlib
+einops
+addict
+ftfy
+regex
+scikit-image
+catalyst
+thop
+
+# Mamba SSM kernels (require CUDA). Install AFTER torch is in place.
+# pip install causal-conv1d>=1.4.0
+# pip install mamba-ssm>=1.2.0
+causal-conv1d>=1.4.0
+mamba-ssm>=1.2.0

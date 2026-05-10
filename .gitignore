@@ -1,0 +1,36 @@
+# Byte-compiled / cache
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Distribution / build
+build/
+dist/
+*.egg-info/
+*.egg
+
+# Datasets and trained artifacts
+data/
+output/
+outputs/
+fig_results/
+lightning_logs/
+model_weights/
+pretrain_weights/
+*.ckpt
+*.pth
+
+# Generated paper figures
+*.pdf
+*.zip
+
+# IDE / editor
+.idea/
+.vscode/
+.DS_Store
+
+# Virtual envs
+.venv/
+venv/
+env/
