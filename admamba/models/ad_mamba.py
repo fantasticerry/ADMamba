@@ -1,10 +1,9 @@
 """ADMamba: anisotropic-direction Mamba for remote sensing semantic segmentation.
 
 This module exposes the public model classes :class:`ADMamba` (Swin backbone) and
-:class:`EfficientADMamba` (lightweight ResNet backbone) along with the building
-blocks that implement the four AD-Mamba innovations: 8-direction diagonal
-scanning, sparse top-k MoE direction routing, the fractional-order difference
-gate, and the elevation-guided multi-scale attention block (GeoMSAA).
+:class:`EfficientADMamba` (lightweight ResNet backbone) along with building blocks
+for 8-direction scanning, sparse top-k MoE routing, and fractional-order
+difference gating. Decoder fusion follows upstream PyramidMamba / GeoSeg.
 """
 
 import math

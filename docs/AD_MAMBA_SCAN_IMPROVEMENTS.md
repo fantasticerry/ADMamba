@@ -22,8 +22,7 @@
 
 ### 现有 DSM 利用方式
 
-- `ElevationGuidedGate`：基于高度差分的门控
-- `GeoMSAA`：基于高度的多尺度感受野路由
+- `ElevationGuidedGate`：基于高度差分的门控（与 DSM/nDSM 输入配合）。
 
 ### 数学本质
 

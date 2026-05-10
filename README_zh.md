@@ -2,12 +2,12 @@
 
 **English:** [README.md](README.md)
 
-AD-Mamba（Anisotropic-Direction Mamba）面向遥感语义分割，在 [PyramidMamba](https://arxiv.org/abs/2406.10828) 基础上针对航拍影像做了四项扩展：
+AD-Mamba（Anisotropic-Direction Mamba）面向遥感语义分割，在 [PyramidMamba](https://arxiv.org/abs/2406.10828) 基础上针对航拍影像做了三项扩展：
 
 - **八方向对角扫描。** 自定义 `CrossScan` / `CrossMerge` 自动微分类对，为 Mamba 状态空间模型提供水平、垂直、两条对角线及其反向序列。
 - **稀疏 top-k MoE 方向路由。** 可学习门控按样本选择信息量最大的扫描方向，并带有受 MoCE-IR 启发的负载均衡辅助损失。
 - **分数阶差分门（FDG）。** 用 Grünwald–Letnikov 分数阶导数门（可选 DSM/nDSM 融合）替代原一阶差分门，沿各扫描方向建模长程依赖。
-- **高程引导的多尺度注意力（GeoMSAA）。** 在有高程数据时，解码器中的小路由器依据局部高程轮廓融合 3×3 / 5×5 / 7×7 分支。
+
 
 验证数据集：**ISPRS Vaihingen**、**ISPRS Potsdam**。
 

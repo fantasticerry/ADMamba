@@ -4,7 +4,7 @@
 
 AD-Mamba (Anisotropic-Direction Mamba) is a remote-sensing semantic
 segmentation framework that extends [PyramidMamba](https://arxiv.org/abs/2406.10828)
-with four ideas tailored to overhead imagery:
+with three ideas tailored to overhead imagery:
 
 - **8-direction diagonal scanning.** A custom `CrossScan` / `CrossMerge`
   autograd pair feeds the Mamba state-space model with horizontal, vertical,
@@ -16,9 +16,6 @@ with four ideas tailored to overhead imagery:
   derivative gate (with optional DSM/nDSM fusion) replaces the original
   first-order difference gate to capture long-range dependencies along each
   scan direction.
-- **Elevation-guided multi-scale attention (GeoMSAA).** When height data is
-  available, a small router blends 3×3 / 5×5 / 7×7 fusion branches in the
-  decoder according to the local elevation profile.
 
 Validated datasets: **ISPRS Vaihingen** and **ISPRS Potsdam**.
 
