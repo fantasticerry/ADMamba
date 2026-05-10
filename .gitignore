@@ -34,6 +34,11 @@ pretrain_weights/
 # Ablation experiments (kept local only)
 ablations/
 
+# Top-k variant configs (kept local only)
+configs/vaihingen/ad_mamba_topk1.py
+configs/vaihingen/ad_mamba_topk2.py
+configs/vaihingen/ad_mamba_topk3.py
+
 # Virtual envs
 .venv/
 venv/
