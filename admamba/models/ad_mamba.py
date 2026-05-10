@@ -1,4 +1,4 @@
-"""ADMamba: anisotropic-direction Mamba for remote sensing semantic segmentation.
+"""AD-Mamba: APrior-guided Single-stream Architecture for Combating Information Dilution in Multimodal Remote Sensing Segmentation
 
 This module exposes the public model classes :class:`ADMamba` (Swin backbone) and
 :class:`EfficientADMamba` (lightweight ResNet backbone) along with building blocks

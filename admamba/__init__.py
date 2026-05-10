@@ -1,4 +1,4 @@
-"""AD-Mamba: Anisotropic-Direction Mamba for remote sensing semantic segmentation."""
+"""AD-Mamba: APrior-guided Single-stream Architecture for Combating Information Dilution in Multimodal Remote Sensing Segmentation"""
 
 __version__ = "0.1.0"
 

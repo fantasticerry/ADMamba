@@ -2,7 +2,7 @@
 
 **简体中文：** [README_zh.md](README_zh.md)
 
-AD-Mamba (Anisotropic-Direction Mamba) is a remote-sensing semantic
+AD-Mamba (Anti-Dilution Mamba) is a remote-sensing semantic
 segmentation framework that extends [PyramidMamba](https://arxiv.org/abs/2406.10828)
 with three ideas tailored to overhead imagery:
 
@@ -450,24 +450,5 @@ This project would not exist without the work it is built on:
   [pytorch-toolbelt](https://github.com/BloodAxe/pytorch-toolbelt),
   [ttach](https://github.com/qubvel/ttach), and [catalyst](https://github.com/catalyst-team/catalyst)
 
-## Citation
 
-If you find AD-Mamba useful, please cite this repository together with the
-upstream PyramidMamba and Mamba papers:
-
-```bibtex
-@software{admamba2025,
-  title  = {AD-Mamba: Anisotropic-Direction Mamba for Remote Sensing Semantic Segmentation},
-  author = {AD-Mamba contributors},
-  year   = {2025},
-  url    = {https://github.com/your-org/ADMamba},
-  note   = {TODO: replace with paper bibtex once published}
-}
-
-@article{wang2024pyramidmamba,
-  title={PyramidMamba: Rethinking Pyramid Feature Fusion with Selective Space State Model for Semantic Segmentation of Remote Sensing Imagery},
-  author={Wang, Libo and others},
-  journal={arXiv preprint arXiv:2406.10828},
-  year={2024}
-}
 ```

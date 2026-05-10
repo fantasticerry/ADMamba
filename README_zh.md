@@ -2,7 +2,7 @@
 
 **English:** [README.md](README.md)
 
-AD-Mamba（Anisotropic-Direction Mamba）面向遥感语义分割，在 [PyramidMamba](https://arxiv.org/abs/2406.10828) 基础上针对航拍影像做了三项扩展：
+AD-Mamba（Anti-Dilution Mamba）面向遥感语义分割，在 [PyramidMamba](https://arxiv.org/abs/2406.10828) 基础上针对航拍影像做了三项扩展：
 
 - **八方向对角扫描。** 自定义 `CrossScan` / `CrossMerge` 自动微分类对，为 Mamba 状态空间模型提供水平、垂直、两条对角线及其反向序列。
 - **稀疏 top-k MoE 方向路由。** 可学习门控按样本选择信息量最大的扫描方向，并带有受 MoCE-IR 启发的负载均衡辅助损失。
@@ -377,23 +377,3 @@ python analysis/plot_final_figures.py
   [pytorch-toolbelt](https://github.com/BloodAxe/pytorch-toolbelt)、
   [ttach](https://github.com/qubvel/ttach)、[catalyst](https://github.com/catalyst-team/catalyst)
 
-## 引用
-
-若 AD-Mamba 对您有帮助，请引用本仓库及上游 PyramidMamba / Mamba 论文：
-
-```bibtex
-@software{admamba2025,
-  title  = {AD-Mamba: Anisotropic-Direction Mamba for Remote Sensing Semantic Segmentation},
-  author = {AD-Mamba contributors},
-  year   = {2025},
-  url    = {https://github.com/your-org/ADMamba},
-  note   = {TODO: replace with paper bibtex once published}
-}
-
-@article{wang2024pyramidmamba,
-  title={PyramidMamba: Rethinking Pyramid Feature Fusion with Selective Space State Model for Semantic Segmentation of Remote Sensing Imagery},
-  author={Wang, Libo and others},
-  journal={arXiv preprint arXiv:2406.10828},
-  year={2024}
-}
-```

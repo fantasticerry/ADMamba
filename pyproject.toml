@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "admamba"
 version = "0.1.0"
-description = "AD-Mamba: Anisotropic-Direction Mamba for remote sensing semantic segmentation."
+description = "AD-Mamba: AAD-Mamba: APrior-guided Single-stream Architecture for Combating Information Dilution in Multimodal Remote Sensing Segmentation"
 readme = "README.md"
 license = { file = "LICENSE" }
 requires-python = ">=3.10"
